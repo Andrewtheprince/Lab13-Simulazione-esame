@@ -8,6 +8,9 @@ class Controller:
         # the model, which implements the logic of the program and holds the data
         self._model = model
 
+    def fillDDYear(self):
+        pass
+
     def handleDDYearSelection(self, e):
         pass
 
