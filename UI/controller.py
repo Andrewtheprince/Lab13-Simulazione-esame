@@ -33,4 +33,12 @@ class Controller:
 
 
     def handleCerca(self, e):
-        pass
+        k = self._view._txtIntK.value
+        kint = int(k)
+        path, scoretot = self._model.getDreamTeam(kint)
+        self._view.txt_result.controls.clear()
+        self._view.txt_result.controls.append(
+            ft.Text(f"Il Dream Team con il minor tasso di sconfitta pari a {scoretot} è:"))
+        for p in path:
+            self._view.txt_result.controls.append(ft.Text(p))
+        self._view.update_page()
