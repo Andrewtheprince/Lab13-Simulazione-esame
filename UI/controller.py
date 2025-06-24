@@ -24,11 +24,12 @@ class Controller:
             return
         self._model.buildGraph(self._annoSelezionato)
         n,a = self._model.getGraphDetails()
+        bestDriver = self._model.getMigliorPilota()
         self._view.txt_result.clean()
         self._view.txt_result.controls.append(ft.Text("Grafo correttamente creato:"))
         self._view.txt_result.controls.append(ft.Text(f"Numero di nodi:{n}"))
         self._view.txt_result.controls.append(ft.Text(f"Numero di archi:{a}"))
-
+        self._view.txt_result.controls.append(ft.Text(bestDriver))
         self._view.update_page()
 
 

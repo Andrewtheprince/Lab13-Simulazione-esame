@@ -27,3 +27,18 @@ class Model:
 
     def getGraphDetails(self):
         return self._graph.number_of_nodes(), self._graph.number_of_edges()
+
+    def getMigliorPilota(self):
+        piloti = []
+        nodi = self._graph.nodes()
+        for nodo in nodi:
+            score = 0
+            successori = self._graph.successors(nodo)
+            predecessori = self._graph.predecessors(nodo)
+            for suc in successori:
+                score += self._graph[nodo][suc]["weight"]
+            for pre in predecessori:
+                score -= self._graph[pre][nodo]["weight"]
+            piloti.append((nodo.surname, score))
+        pilotiOrdinati = sorted(piloti, key=lambda x: x[1], reverse = True)
+        return f"Best driver:{pilotiOrdinati[0][0]}, with score {pilotiOrdinati[0][1]}"
