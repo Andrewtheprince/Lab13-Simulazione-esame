@@ -47,7 +47,6 @@ class Model:
     def getDreamTeam(self, k):
         self._bestPath = []
         self._bestScore = 1000
-
         parziale = []
         self._ricorsione(parziale, k)
         return self._bestPath, self._bestScore
